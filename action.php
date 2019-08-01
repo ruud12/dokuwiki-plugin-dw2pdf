@@ -597,20 +597,22 @@ class action_plugin_dw2pdf extends DokuWiki_Action_Plugin {
         foreach(array('header', 'footer') as $section) {
             foreach(array('', '_odd', '_even', '_first') as $order) {
                 $file = DOKU_PLUGIN . 'dw2pdf/tpl/' . $this->tpl . '/' . $section . $order . '.html';
-                if(file_exists($file)) {
-                    $html .= '<htmlpage' . $section . ' name="' . $section . $order . '">' . DOKU_LF;
-                    $html .= file_get_contents($file) . DOKU_LF;
-                    $html .= '</htmlpage' . $section . '>' . DOKU_LF;
+                if($_GET['noheader'] != 'noheader') {
+                    if(file_exists($file)) {
+                        $html .= '<htmlpage' . $section . ' name="' . $section . $order . '">' . DOKU_LF;
+                        $html .= file_get_contents($file) . DOKU_LF;
+                        $html .= '</htmlpage' . $section . '>' . DOKU_LF;
 
-                    // register the needed pseudo CSS
-                    if($order == '_first') {
-                        $output['first'] .= $section . ': html_' . $section . $order . ';' . DOKU_LF;
-                    } elseif($order == '_even') {
-                        $output['page'] .= 'even-' . $section . '-name: html_' . $section . $order . ';' . DOKU_LF;
-                    } elseif($order == '_odd') {
-                        $output['page'] .= 'odd-' . $section . '-name: html_' . $section . $order . ';' . DOKU_LF;
-                    } else {
-                        $output['page'] .= $section . ': html_' . $section . $order . ';' . DOKU_LF;
+                        // register the needed pseudo CSS
+                        if($order == '_first') {
+                            $output['first'] .= $section . ': html_' . $section . $order . ';' . DOKU_LF;
+                        } elseif($order == '_even') {
+                            $output['page'] .= 'even-' . $section . '-name: html_' . $section . $order . ';' . DOKU_LF;
+                        } elseif($order == '_odd') {
+                            $output['page'] .= 'odd-' . $section . '-name: html_' . $section . $order . ';' . DOKU_LF;
+                        } else {
+                            $output['page'] .= $section . ': html_' . $section . $order . ';' . DOKU_LF;
+                        }
                     }
                 }
             }

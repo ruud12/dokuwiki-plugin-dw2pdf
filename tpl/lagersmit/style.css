@@ -1,0 +1,183 @@
+table {
+    align:center !important;
+    width:100%;
+}
+
+span {
+    border: 0 !important;
+    background-color: white;
+}
+
+table td, table th {
+	border:0.5px solid grey;
+	padding:2px;
+	padding-left:5px;
+	padding-right:5px;
+}
+
+table th {
+	background-color:#f2f2f2;
+}
+
+table.pdfheader td, table.pdffooter td {
+	border:0px;
+	padding:0px;
+}
+
+table.pdfheader {
+    font-size: 8pt;
+    border-collapse: collapse;
+    border-bottom: 1px solid #000000;
+    clear: both;
+}
+
+table.pdfheader td.header_logo {
+	width:50%;
+}
+
+div#printed_date {
+	text-align:center;
+	color:grey;
+	margin-top:2cm;
+}
+
+table.pdffooter {
+    font-size: 8pt;
+    border-collapse: collapse;
+    border-top: 1px solid #000000;
+    clear: both;
+}
+
+
+/* Table of Content -- see http://mpdf1.com/manual/index.php?tid=243 */
+div.mpdf_toc {
+}
+a.mpdf_toc_a {
+    color: black; /* links black as well */
+}
+/* Whole line level 0 */
+div.mpdf_toc_level_0 {
+    line-height: 1.5;
+    margin-left: 0;
+    padding-right: 1em; /* padding-right should match e.g <dottab outdent="2em" /> 0 is default */
+}
+/* Title level 0 - may be inside <a> */
+span.mpdf_toc_t_level_0 {
+}
+/* Page no. level 0 - may be inside <a> */
+span.mpdf_toc_p_level_0 {
+}
+/* Whole line level 1 */
+div.mpdf_toc_level_1 {
+    margin-left: 1em;
+    text-indent: -1em;
+    padding-right: 1em; /* padding-right should match <dottab outdent="2em" /> 2em is default */
+}
+/* Title level 1 */
+span.mpdf_toc_t_level_1 {
+}
+/* Page no. level 1 - may be inside <a> */
+span.mpdf_toc_p_level_1 {
+	font-weight:bold;
+}
+/* level 2 */
+div.mpdf_toc_level_2 {
+    margin-left: 2em;
+    text-indent: -1em;
+    padding-right: 1em; /* padding-right should match <dottab outdent="2em" /> 2em is default */
+}
+span.mpdf_toc_t_level_2 {}
+span.mpdf_toc_p_level_2 {}
+
+/* level 3 */
+div.mpdf_toc_level_3 {
+    margin-left: 3em;
+    text-indent: -1em;
+    padding-right: 1em; /* padding-right should match <dottab outdent="2em" /> 2em is default */
+}
+span.mpdf_toc_t_level_3 {}
+span.mpdf_toc_p_level_3 {}
+
+/* level 4 */
+div.mpdf_toc_level_4 {
+    margin-left: 4em;
+    text-indent: -1em;
+    padding-right: 1em; /* padding-right should match <dottab outdent="2em" /> 2em is default */
+}
+span.mpdf_toc_t_level_4 {}
+span.mpdf_toc_p_level_4 {}
+
+div#title {
+		font-size:25pt;
+		text-align:center;
+		color:#666666;
+}
+
+div#logo {
+	margin-bottom:1cm;
+	text-align:center;
+}
+
+body, .page {
+	font-size:9pt;
+
+}
+
+
+
+
+@page { margin:2.5cm 2.5cm; margin-header:1.5cm; margin-footer:1.2cm }
+
+
+
+
+
+
+
+/*
+a {
+	color: #2B73B7;
+}*/
+
+table {
+	border:0px;
+	
+}
+
+
+
+
+a {
+	color: black;
+}
+
+a.wikilink1 {
+    color: #080;
+}
+
+
+
+
+
+table.dataTable {
+	width:99% !important;
+}
+
+
+.dokuwiki div.table table {
+    overflow-x: auto;
+    /*margin:0 auto !important;*/
+    margin-bottom: 1.4em;
+}
+
+
+table th.centeralign {
+	text-align: center;
+}
+
+
+.dokuwiki div.table table th {
+    text-align:left;
+}
+
+
