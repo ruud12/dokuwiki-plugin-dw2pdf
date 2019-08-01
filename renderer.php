@@ -78,15 +78,6 @@ class renderer_plugin_dw2pdf extends Doku_Renderer_xhtml {
         $pid = sectionID($ID, $check);
         $hid = $pid . '__' . $hid;
 
-        // add PDF bookmark
-        $bookmark = '';
-        $maxbookmarklevel = $this->actioninstance->getExportConfig('maxbookmarks');
-        // 0: off, 1-6: show down to this level
-        if($maxbookmarklevel && $maxbookmarklevel >= $level) {
-            $bookmarklevel = $this->calculateBookmarklevel($level);
-            $bookmark = '<bookmark content="' . $this->_xmlEntities($text) . '" level="' . ($bookmarklevel) . '" />';
-        }
-
         if ($level > 1) {
             if ($this->previous_level > $level) {
                 for ($i=$level+1; $i<=$this->previous_level; $i++) {
@@ -99,6 +90,16 @@ class renderer_plugin_dw2pdf extends Doku_Renderer_xhtml {
         $header_prefix = "";
         for ($i=2; $i<=$level; $i++) {
             $header_prefix .= $this->header_count[$i].".";
+        }
+
+
+        // add PDF bookmark
+        $bookmark = '';
+        $maxbookmarklevel = $this->actioninstance->getExportConfig('maxbookmarks');
+        // 0: off, 1-6: show down to this level
+        if($maxbookmarklevel && $maxbookmarklevel >= $level) {
+            $bookmarklevel = $this->calculateBookmarklevel($level);
+            $bookmark = '<bookmark content="' . $header_prefix." ".$this->_xmlEntities($text) . '" level="' . ($bookmarklevel) . '" />';
         }
 
         // print header
