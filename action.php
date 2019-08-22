@@ -652,44 +652,40 @@ class action_plugin_dw2pdf extends DokuWiki_Action_Plugin {
                 $order_info = '<div id="customer info"><table align="center">';
 
                 if ($_GET['order_no']) {
-                    $order_info .= "<tr><td>Order number</td><td width='60%'>".$_GET['order_no']."</td></tr>";
+                    $order_info .= "<tr><td width='60%'>Order number</td><td>".$_GET['order_no']."</td></tr>";
                 } else {
-                    $order_info .= "<tr><td>Order number</td><td width='60%'>-</td></tr>";
+                    $order_info .= "<tr><td width='60%'>Order number</td><td>-</td></tr>";
                 }
 
                 if ($_GET['seal_type'] && $_GET['aft_serial'] && $_GET['aft_size'] && $_GET['aft_drawing']) {
 
                     if ($_GET['seal_type'] && $_GET['aft_serial']) {
-                        $order_info .= "<tr><td>".$_GET['seal_type']." seal serial number</td><td width='60%'>".$_GET['aft_serial']."</td></tr>";
+                        $order_info .= "<tr><td>".$_GET['seal_type']." serial number</td><td width='60%'>".$_GET['aft_serial']."</td></tr>";
                     }
                     if ($_GET['aft_size'] && $_GET['seal_type']) {
-                        $order_info .= "<tr><td>".$_GET['seal_type']." seal size</td><td width='60%'>".$_GET['aft_size']."</td></tr>";
+                        $order_info .= "<tr><td>".$_GET['seal_type']." size</td><td width='60%'>".$_GET['aft_size']."</td></tr>";
                     }
                     if ($_GET['seal_type'] && $_GET['aft_drawing']) {
-                        $order_info .= "<tr><td>".$_GET['seal_type']." seal assembly drawing(s)</td><td width='60%'>".$_GET['aft_drawing']."</td></tr>";
+                        $order_info .= "<tr><td>".$_GET['seal_type']." assembly drawing(s)</td><td width='60%'>".$_GET['aft_drawing']."</td></tr>";
                     }
                 }
 
-                if ($_GET['seal_type'] && $_GET['seal_type'] == 'Aft' && $_GET['fwd_size'] && $_GET['fwd_serial'] && $_GET['fwd_drawing']) {
+                if ($_GET['seal_type_2'] && $_GET['fwd_serial'] && $_GET['fwd_size'] && $_GET['fwd_drawing']) {
 
-                    if ($_GET['fwd_size']) {
-                        $order_info .= "<tr><td>Forward seal size</td><td width='60%'>".$_GET['fwd_size']."</td></tr>";
+                    if ($_GET['seal_type_2'] && $_GET['fwd_serial']) {
+                        $order_info .= "<tr><td>".$_GET['seal_type_2']." serial number</td><td width='60%'>".$_GET['fwd_serial']."</td></tr>";
                     }
-
-                    if ($_GET['fwd_serial']) {
-                        $order_info .= "<tr><td>Forward seal serial number</td><td width='60%'>".$_GET['fwd_serial']."</td></tr>";
+                    if ($_GET['fwd_size'] && $_GET['seal_type_2']) {
+                        $order_info .= "<tr><td>".$_GET['seal_type_2']." size</td><td width='60%'>".$_GET['fwd_size']."</td></tr>";
                     }
-                    if ($_GET['fwd_drawing']) {
-                        $order_info .= "<tr><td>Forward seal assembly drawing(s)</td><td width='60%'>".$_GET['fwd_drawing']."</td></tr>";
+                    if ($_GET['seal_type_2'] && $_GET['fwd_drawing']) {
+                        $order_info .= "<tr><td>".$_GET['seal_type_2']." assembly drawing(s)</td><td width='60%'>".$_GET['fwd_drawing']."</td></tr>";
                     }
                 }
 
                 if ($_GET['pid']) {
                     $order_info .= "<tr><td>P&ID drawing number(s)</td><td width='60%'>".$_GET['pid']."</td></tr>";
-                } else {
-                    $order_info .= "<tr><td>P&ID drawing number(s)</td><td width='60%'></td></tr>";
-                }
-
+                } 
                 $order_info .= "</table></div>";
                 $output['cover'] = str_replace("<!-- order info -->", $order_info, $output['cover']);
 
