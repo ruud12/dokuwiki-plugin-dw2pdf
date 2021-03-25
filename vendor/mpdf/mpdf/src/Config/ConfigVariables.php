@@ -393,7 +393,8 @@ class ConfigVariables
 			'SHYcharmax' => 10,
 
 			// ACTIVE FORMS
-			'useActiveForms' => false,
+			/* 'useActiveForms' => false, */
+			'useActiveForms' => true,
 
 			// WATERMARKS
 			'watermarkImgBehind' => false,

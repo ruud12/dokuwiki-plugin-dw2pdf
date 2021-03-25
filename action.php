@@ -468,7 +468,9 @@ class action_plugin_dw2pdf extends DokuWiki_Action_Plugin {
         $body_start .= '<div class="dokuwiki">';
 
         // insert the cover page
-        $body_start .= $template['cover'];
+        if ($_GET['cover'] != "0") {
+            $body_start .= $template['cover'];
+        }
 
         $mpdf->WriteHTML($body_start, 2, true, false); //start body html
         if($isDebug) {
@@ -627,6 +629,7 @@ class action_plugin_dw2pdf extends DokuWiki_Action_Plugin {
             '@WIKIURL@' => DOKU_URL,
             '@DATE@'    => dformat(time()),
             '@BASE@'    => DOKU_BASE,
+            '@USERNAME@'    => pageinfo()['user'],
             '@INC@'     => DOKU_INC,
             '@TPLBASE@' => DOKU_BASE . 'lib/plugins/dw2pdf/tpl/' . $this->tpl . '/',
             '@TPLINC@'  => DOKU_INC . 'lib/plugins/dw2pdf/tpl/' . $this->tpl . '/'
